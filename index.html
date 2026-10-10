@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover free, legally shareable open movies and download them from official sources.">
+  <meta name="theme-color" content="#111827">
+  <title>OpenCinema — Free Legal Movies</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#141c30;--panel2:#1b2640;--text:#f4f7ff;--muted:#b4bfd7;--accent:#ff496c;--accent2:#ff8a5b;--line:#293651}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top right,#202a49 0,#0b1020 42%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit} .wrap{width:min(1120px,92%);margin:auto}
+    header{padding:22px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,16,32,.92);backdrop-filter:blur(12px);z-index:5}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;letter-spacing:.3px;font-size:1.25rem}.brand span{color:var(--accent)}
+    .nav small{color:var(--muted)} .hero{padding:64px 0 42px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .eyebrow{color:#ff9db0;text-transform:uppercase;font-size:.78rem;font-weight:800;letter-spacing:1.8px}
+    h1{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.03;margin:12px 0 18px;letter-spacing:-1.8px}
+    .hero p{color:var(--muted);max-width:650px;font-size:1.08rem}
+    .hero-art{min-height:245px;border-radius:26px;background:linear-gradient(140deg,#ff496c,#8a4dff 52%,#25c7d9);padding:22px;display:flex;align-items:end;overflow:hidden;box-shadow:0 20px 70px #0006}
+    .hero-art div{font-size:clamp(2rem,4vw,3.6rem);font-weight:950;line-height:.95;text-shadow:0 3px 22px #0005}
+    .searchrow{display:flex;gap:10px;margin-top:25px;flex-wrap:wrap}
+    input,select{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 14px;color:var(--text);font:inherit}
+    input{flex:1;min-width:200px} select{min-width:150px}
+    .sectionhead{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:24px 0 18px}.sectionhead h2{margin:0;font-size:1.6rem}.sectionhead p{margin:3px 0 0;color:var(--muted);font-size:.92rem}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:35px}
+    .card{background:linear-gradient(180deg,#18223a,#11182a);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+    .poster{height:190px;padding:18px;display:flex;align-items:end;position:relative;overflow:hidden}
+    .poster:before{content:"";position:absolute;width:190px;height:190px;border:1px solid #ffffff42;border-radius:50%;right:-28px;top:-50px;box-shadow:0 0 0 18px #ffffff0d,0 0 0 40px #ffffff08}
+    .poster strong{position:relative;font-size:1.65rem;line-height:1.05;max-width:90%;text-shadow:0 2px 15px #0007}
+    .p1{background:linear-gradient(135deg,#5c2b88,#ed5b73)}.p2{background:linear-gradient(135deg,#164e63,#35a7a0)}.p3{background:linear-gradient(135deg,#a23b24,#f6ad55)}
+    .cardbody{padding:17px;display:flex;flex-direction:column;gap:10px;flex:1}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{font-size:.75rem;color:#ffd3dc;background:#4d2438;border-radius:99px;padding:4px 9px}
+    .card h3{margin:0;font-size:1.2rem}.card p{margin:0;color:var(--muted);font-size:.93rem}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:7px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;border:0;border-radius:10px;padding:10px 13px;font-weight:800;font-size:.9rem;cursor:pointer}
+    .primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+    .notice{border:1px solid #67552c;background:#302819;color:#ffe5a4;border-radius:14px;padding:14px 16px;margin:8px 0 35px;font-size:.9rem}
+    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 42px}.step{border:1px solid var(--line);background:#11182a;border-radius:15px;padding:18px}.step b{display:block;margin-bottom:6px}.step p{margin:0;color:var(--muted);font-size:.92rem}
+    footer{border-top:1px solid var(--line);padding:25px 0 35px;color:var(--muted);font-size:.88rem}footer a{color:#ff9db0}
+    .empty{display:none;color:var(--muted);padding:25px 0}
+    @media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:42px}.hero-art{min-height:170px}.grid{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}.poster{height:170px}.nav small{display:none}.sectionhead{align-items:start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand">OPEN<span>CINEMA</span></div><small>Free • Legal • Independent films</small></div></header>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Your next movie night starts here</div>
+      <h1>Great stories.<br>Open access.</h1>
+      <p>Discover independent and open-license films. Use the official source links to watch or download where the filmmaker permits it.</p>
+      <div class="searchrow">
+        <input id="search" type="search" placeholder="Search movies or genres…" aria-label="Search movies">
+        <select id="genre" aria-label="Filter by genre">
+          <option value="all">All genres</option><option value="animation">Animation</option><option value="sci-fi">Sci-fi</option><option value="drama">Drama</option>
+        </select>
+      </div>
+    </div>
+    <div class="hero-art" aria-label="OpenCinema graphic"><div>WATCH<br>OPEN.<br>STAY CURIOUS.</div></div>
+  </section>
+
+  <section>
+    <div class="sectionhead"><div><h2>Featured open movies</h2><p>Starter catalogue • Official filmmaker pages</p></div></div>
+    <div class="grid" id="movies">
+      <article class="card" data-title="big buck bunny" data-genre="animation">
+        <div class="poster p1"><strong>BIG BUCK<br>BUNNY</strong></div>
+        <div class="cardbody"><div class="tags"><span class="tag">Animation</span><span class="tag">Short film</span></div><h3>Big Buck Bunny</h3><p>A light-hearted animated short from the Blender Open Movies project.</p><div class="actions"><a class="btn primary" href="https://studio.blender.org/films/big-buck-bunny/" target="_blank" rel="noopener noreferrer">Official film & downloads ↗</a></div></div>
+      </article>
+      <article class="card" data-title="sintel fantasy adventure animation" data-genre="animation">
+        <div class="poster p2"><strong>SINTEL</strong></div>
+        <div class="cardbody"><div class="tags"><span class="tag">Animation</span><span class="tag">Fantasy</span></div><h3>Sintel</h3><p>A fantasy adventure short film produced by the Blender Foundation.</p><div class="actions"><a class="btn primary" href="https://studio.blender.org/films/sintel/" target="_blank" rel="noopener noreferrer">Official film & downloads ↗</a></div></div>
+      </article>
+      <article class="card" data-title="tears of steel science fiction sci-fi" data-genre="sci-fi">
+        <div class="poster p3"><strong>TEARS OF<br>STEEL</strong></div>
+        <div class="cardbody"><div class="tags"><span class="tag">Sci-fi</span><span class="tag">VFX</span></div><h3>Tears of Steel</h3><p>A science-fiction short created to demonstrate open movie-making and visual effects.</p><div class="actions"><a class="btn primary" href="https://studio.blender.org/films/tears-of-steel/" target="_blank" rel="noopener noreferrer">Official film & downloads ↗</a></div></div>
+      </article>
+    </div>
+    <p class="empty" id="empty">No matching movies. Try another title or genre.</p>
+    <div class="notice"><b>Copyright note:</b> This site links to official filmmaker pages instead of rehosting movie files. Before adding any film, check its current licence, territory restrictions, attribution requirements, and whether redistribution/downloads are allowed.</div>
+  </section>
+
+  <section>
+    <div class="sectionhead"><div><h2>How it works</h2><p>Simple for visitors, safer for you.</p></div></div>
+    <div class="how">
+      <div class="step"><b>1. Find a film</b><p>Search the catalogue or browse by genre.</p></div>
+      <div class="step"><b>2. Open the official page</b><p>Check the film's licence and choose an official viewing or download option.</p></div>
+      <div class="step"><b>3. Share a useful guide</b><p>Create original Pinterest Pins that link to a relevant movie guide on your site.</p></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="year"></span> OpenCinema Starter. Independent demo website; not affiliated with Blender Foundation. <br>Before launch, add your own contact/about/privacy pages and review the rules of your hosting and advertising providers.</div></footer>
+<script>
+  const search = document.getElementById('search');
+  const genre = document.getElementById('genre');
+  const cards = [...document.querySelectorAll('.card')];
+  const empty = document.getElementById('empty');
+  function filterMovies(){
+    const q = search.value.trim().toLowerCase();
+    const g = genre.value;
+    let visible = 0;
+    cards.forEach(card => {
+      const matchesText = (card.dataset.title + ' ' + card.innerText).toLowerCase().includes(q);
+      const matchesGenre = g === 'all' || card.dataset.genre === g;
+      const show = matchesText && matchesGenre;
+      card.style.display = show ? 'flex' : 'none';
+      if(show) visible++;
+    });
+    empty.style.display = visible ? 'none' : 'block';
+  }
+  search.addEventListener('input', filterMovies);
+  genre.addEventListener('change', filterMovies);
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
